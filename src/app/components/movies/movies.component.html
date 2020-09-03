@@ -1,0 +1,19 @@
+<p>Create a movie!</p>
+<form [formGroup]="movieForm">
+  <div class="form-group">
+    <label>Movie Name:</label>
+    <input class="form-control" formControlName="name" />
+    <label>Gender:</label>
+    <mat-form-field>
+      <mat-select (change)="setCaptureType($event)">
+        <mat-option *ngFor="let gender of genders" [value]="gender.id">
+          {{ gender.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <input class="form-control" formControlName="gender" />
+    <button mat-icon-button (click)="alertClick()" [disabled]="disabled">
+      <mat-icon>save</mat-icon>
+    </button>
+  </div>
+</form>
